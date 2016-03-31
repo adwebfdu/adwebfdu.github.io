@@ -24,6 +24,6 @@ PJ 的功能点, 每个点的给分以及加分点的具体分数还没有最终
 # PJ 和作业提交方式
 ---
 
-本次 PJ 采用 (github)[https://github.com] 作为代码提交的平台, 文档撰写采用 gitbook 的形式, 以方便大家交流, 并且方便课程在时间上的积累.
+本次 PJ 采用 [github](https://github.com) 作为代码提交的平台, 文档撰写采用 gitbook 的形式, 以方便大家交流, 并且方便课程在时间上的积累.
 
 首先请大家注册 github 账号, 然后按照课程 [Repository](https://github.com/adwebfdu-org/course2016) 项目主页内的说明进行.
