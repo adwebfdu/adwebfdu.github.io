@@ -1,0 +1,60 @@
+<div ng-include src="'partials/module/header.html'"></div>
+<canvas id="my-map">
+</canvas>
+<div class="home-view activity-view" ng-show="currentView=='activity'">
+    <p style="font-weight: bold;margin-bottom: 10px;" ng-show="isComment">可将以下图标定位至地图</p>
+    <span class="comment-item"><i class="comment-icon" style="background-color:red;"></i>运动（跑步、骑行、球类）</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:green;"></i>健身（散步、器械健身）</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:blue;"></i>交往活动</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:orange;"></i>观赏</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:gray;"></i>休憩</span>
+</div>
+<div class="home-view place-view" ng-show="currentView=='place'">
+    <p style="font-weight: bold;margin-bottom: 10px;" ng-show="isComment">将能得到以下体验的场所进行标记
+    </p>
+    <span class="comment-item"><i class="comment-icon" style="background-color:red;"></i>亲近自然</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:green;"></i>锻炼健身</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:blue;"></i>聚会交友</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:orange;"></i>美的体验</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:gray;"></i>观察学习</span>
+</div>
+<div class="home-view suggest-view" ng-show="currentView=='suggest'">
+    <p style="font-weight: bold;margin-bottom: 10px;" ng-show="isComment">将您的建议拖放至场所</p>
+    <span class="comment-item"><i class="comment-icon" style="background-color:red;"></i>增加硬件空间</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:green;"></i>增加绿色空间</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:blue;"></i>增加设施<input></span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:orange;"></i>改善到达公共交通</span>
+    <span class="comment-item"><i class="comment-icon" style="background-color:gray;"></i>改善园内步行系统</span>
+</div>
+<div class="home-view question-view" ng-show="currentView=='question'">
+    <div style="height:400px;text-align: center;">调查问卷
+        <br>
+        <p>1.请问该景点分类是否正确？</p>
+        <br>
+        <p>A.是<input type="radio">&nbsp;B.否<input type="radio"></p>
+        <br>
+        <p>2.请问该景点是否满意？</p>
+        <br>
+        <p>A.非常满意<input type="radio">&nbsp;B.比较满意<input type="radio"><br>C.不太满意<input type="radio">&nbsp;D.很不满意<input type="radio"></p>
+    </div>
+    <div><span class="rect"><a class="tooltip-test" data-toggle="tooltip"
+                               title="提交后用户可查看每个问题各选项的选择人数、比例等统计情况">
+        提交
+    </a></span></div>
+</div>
+<div class="footer" style="height:80px;">
+    <div class="container">
+        <div class="row" ng-show="!isQuestion">
+            <div class="link-div col-xs-4"><a ng-click="showView('activity')">活动类型</a></div>
+            <div class="link-div col-xs-4"><a ng-click="showView('place')">场所类型</a></div>
+            <div class="link-div col-xs-4"><a ng-click="showView('suggest')">建议</a></div>
+        </div>
+        <br>
+
+        <div class="row" ng-show="!isComment">
+            <div class="link-div col-xs-4"><a ng-click="enableComment()">去评价</a></div>
+            <div class="link-div col-xs-4"><a ng-click="">使用评价</a></div>
+            <div class="link-div col-xs-4"><a ng-click="showView('question')">调查问卷</a></div>
+        </div>
+    </div>
+</div>

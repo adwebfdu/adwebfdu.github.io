@@ -1,0 +1,38 @@
+<div>
+    <ul class="nav nav-tabs" ng-if="!scroll">
+        <li ng-repeat="category in spots"><a data-toggle="tab" ng-click="showCategory($index)">{{category.category}}</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content" style="padding:20px;">
+        <div ng-repeat="category in spots" ng-show="$index == showCategoryIndex">
+            <ul ng-class="{true:'scroll-list spot-list',false:'spot-list'}[scroll]">
+                <li ng-repeat="spot in category.spots|filter:keyword.text |orderBy:('-'+sortBy)" class="spot-item"
+                    ng-click="showOverview()">
+                    <h2>{{spot.name}}</h2>
+
+                    <p ng-show="sortBy=='score'">评分： {{spot.score}}</p>
+
+                    <p ng-show="sortBy=='collect'">评分： {{spot.collect}}</p>
+
+                    <p ng-show="sortBy=='footprint'">评分： {{spot.footprint}}</p>
+
+                    <p ng-show="sortBy=='wish'">评分： {{spot.wish}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="orderby" style="text-align: center;">
+        <button class="btn btn-default" ng-click="orderBy('score')">评分</button>
+        <button class="btn btn-default" ng-click="orderBy('collect')">收藏</button>
+        <button class="btn btn-default" ng-click="orderBy('footprint')">足迹</button>
+        <button class="btn btn-default" ng-click="orderBy('wish')">心愿</button>
+        <button type="button" class="btn btn-default" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="left"
+                data-content="产生一个推荐列表页面，可以使用协同过滤、热门景点等进行推荐">
+            推荐
+        </button>
+    </div>
+    <div class="key-words" style="text-align: center;padding:10px;" ng-if="!scroll">
+        <input placeholder="通过输入关键词搜索" class="form-control" style="width:80%;margin-left: 10%;" ng-model="keyword.text">
+    </div>
+</div>

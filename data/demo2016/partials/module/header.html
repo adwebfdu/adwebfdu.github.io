@@ -1,0 +1,17 @@
+<div class="header" ng-controller="headerCtrl">
+    <div class="dropdown header-menu">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" ng-click="toggleMenu()"
+                data-toggle="dropdown">
+            菜单
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display:block;" ng-if="isShowMenu">
+            <spot-list-panel spots="spots"></spot-list-panel>
+        </ul>
+    </div>
+    <div class="title">
+        {{title}}
+    </div>
+    <button class="btn-sm btn-primary btn-return" ng-show="isShowReturn" ng-click="back()"><span
+            class="glyphicon glyphicon-arrow-left"></span></button>
+</div>

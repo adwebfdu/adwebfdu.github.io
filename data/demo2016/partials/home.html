@@ -1,0 +1,80 @@
+<div ng-include src="'partials/module/header.html'"></div>
+<div id="my-map" style="width:100%;height:100%;">
+</div>
+<input class="form-control search-input" placeholder="搜索输入框" ng-show="!isRoute">
+<div class="overlay" style="position: absolute;width:150px;right:0px;padding:10px;top:150px;background-color: white;text-align: center;">
+    <div><span class="rect">图层</span></div>
+    <div class="row">
+        <input type="checkbox" class="overlay-checkbox" value="0">&nbsp;上海近代公园<br>
+        <input type="checkbox" class="overlay-checkbox" value="1">&nbsp;上海工业遗址
+    </div>
+</div>
+<div class="start-end" ng-show="isRoute">
+    <input placeholder="请输入起点" class="form-control route-input"><span class="glyphicon glyphicon-arrow-right"></span>
+    <input placeholder="请输入终点" class="form-control route-input">
+    <button class="btn-sm btn-primary">搜索</button>
+</div>
+<!--<div ng-include src="'partials/module/listFooter.html'"></div>-->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="link-div col-xs-2"><a ng-class="{'active':currentView=='list'}" ng-click="showView('list')">项目</a></div>
+            <div class="link-div col-xs-2"><a ng-class="{'active':currentView=='neighbor'}" ng-click="showView('neighbor')">附近</a></div>
+            <div class="link-div col-xs-4"><a ng-class="{'active':currentView=='search'}" ng-click="showView('search')">搜索历史</a></div>
+            <div class="link-div col-xs-2"><a ng-class="{'active':currentView=='route'}" ng-click="showView('route')">路线</a></div>
+            <div class="link-div col-xs-2"><a ng-class="{'active':currentView=='user'}" ng-click="showView('user')">我的</a></div>
+        </div>
+    </div>
+</div>
+<div class="list-view home-view" ng-show="currentView=='list'">
+    <spot-list-panel spots="spots"></spot-list-panel>
+</div>
+<div class="neighbor-view home-view" ng-show="currentView=='neighbor'">
+    <spot-list-panel spots="spots" scroll="true"></spot-list-panel>
+</div>
+<div class="search-view home-view" ng-show="currentView=='search'">
+    <spot-list-panel spots="spots"></spot-list-panel>
+</div>
+<div class="route-view home-view" ng-show="currentView=='route' && isShowMarker">
+    <div>
+        <h3>基本信息</h3>
+        <br>
+        <p>满意度评分：100</p>
+    </div>
+    <br>
+    <div>
+        <img src="images/spot-demo.jpg" class="demo-photo">
+        <img src="images/spot-demo2.jpg" class="demo-photo">
+    </div>
+    <br>
+    <div>
+        <span class="rect"><a>进入项目主页</a></span>
+    </div>
+</div>
+<div class="user-view home-view" ng-show="currentView=='user'">
+    <div><img src="images/user2.png" class="user-profile"></div>
+    <div><span class="rect" style="width:40%;">名字</span></div>
+    <div>
+        <span class="rect" style="width:30%;">注册</span>
+        <span class="rect" style="width:30%;"><a class="tooltip-test" data-toggle="tooltip"
+                                                 title="可以使用第三方账号登录">
+            登录
+        </a></span>
+    </div>
+    <div>
+        <span class="rect">足迹</span>
+        <span class="rect">心愿单</span>
+        <span class="rect">收藏</span>
+        <span class="rect">分享</span>
+        <span class="rect">关于我们</span>
+    </div>
+</div>
+<script>
+    $(function () {
+        var map = new BMap.Map("my-map");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);
+    });
+</script>

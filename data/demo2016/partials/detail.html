@@ -1,0 +1,59 @@
+<div ng-include src="'partials/module/header.html'"></div>
+<div id="my-map" style="text-align: center;position: absolute;top:50px;left:0;right:0;bottom:50px;padding:20px 10px;">
+    <div class="row">
+        <div class="col-xs-7">
+            <span class="rect">满意度评分</span>
+            <img src="images/comment.png" style="width:80%;">
+        </div>
+        <div class="col-xs-5">
+            <span class="rect" style="width:40%;">收藏</span><span class="rect" style="width:40%;">分享</span>
+            <br>
+            <br>
+            <div>
+                <span>基本信息</span>
+            </div>
+
+        </div>
+    </div>
+    <div style="height:100px;padding:20px 0;">
+        <img src="images/spot-demo.jpg" class="demo-photo" style="width:35%;">
+        <img src="images/spot-demo2.jpg" class="demo-photo" style="width:35%;">
+        <span class="label label-default" style="display: inline-block;"><a class="tooltip-test" data-toggle="tooltip"
+                                                                            title="点击进入该项目的图片库">
+            更多
+        </a></span>
+    </div>
+    <div style="height:100px;padding:20px 0;">
+        <video width="120" height="80" class="demo-photo" autoplay loop>
+            <source src="images/movie.mp4" type="video/mp4">
+            <source src="images/movie.ogg" type="video/ogg">
+            您的浏览器不支持 HTML5 video 标签。
+        </video>
+        <span class="label label-default" style="display: inline-block;"><a class="tooltip-test" data-toggle="tooltip"
+                                                                            title="点击进入该项目的视频库">
+            更多
+        </a></span>
+    </div>
+    <div style="height:100px;padding:20px 0;">
+        <div id="3d"></div>
+        <span class="label label-default" style="display: inline-block;"><a href="/#/3d" class="tooltip-test" data-toggle="tooltip"
+                                                                            title="点击进入该项目的模型库">
+            更多
+        </a></span>
+    </div>
+    <div style="height:100px;padding:20px;">
+        <h1>他人评价</h1>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="link-div col-xs-4"><a  ng-click="">加入心愿单</a></div>
+            <div class="link-div col-xs-4"><a  ng-click="">加入足迹</a></div>
+            <div class="link-div col-xs-4"><a class="tooltip-test" data-toggle="tooltip"
+                                              title="需要用户提供错误类型、证据截图、错误描述等信息。地图上会对该景点作特殊标注。">
+                报错
+            </a></div>
+        </div>
+    </div>
+</div>

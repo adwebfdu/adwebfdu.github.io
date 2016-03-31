@@ -1,0 +1,72 @@
+<div ng-include src="'partials/module/header.html'"></div>
+<div id="my-map" style="width:100%;height:100%;">
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="link-div col-xs-4"><a  ng-click="goto('detail')">详细资料</a></div>
+            <div class="link-div col-xs-3"><a  ng-click="goto('comment')">评价</a></div>
+            <div class="link-div col-xs-3"><a  ng-click="showRoute()">到这去</a></div>
+            <div class="link-div col-xs-2"><a  ng-click="addComment()"><span class="glyphicon glyphicon-plus"></span></a></div>
+        </div>
+    </div>
+</div>
+<div ng-class="{true:'home-view default-overview more-overview',false:'home-view default-overview'}[isShowMore]" ng-show="currentView=='default'">
+    <div class="top-slide-bar" ng-click="showMore()"></div>
+    <div class="row">
+        <div class="col-xs-7">
+            <span class="rect">满意度评分</span>
+            <img src="images/comment.png" style="width:80%;">
+        </div>
+        <div class="col-xs-5">
+            <span class="rect" style="width:40%;">收藏</span><span class="rect" style="width:40%;">分享</span>
+            <br>
+            <br>
+            <div>
+                <span class="glyphicon glyphicon-plus" style="color:lightgreen;"></span>&nbsp;加入足迹
+            </div>
+            <br>
+            <div>
+                <span class="glyphicon glyphicon-plus" style="color:lightgreen;"></span>&nbsp;加入心愿单
+            </div>
+        </div>
+    </div>
+    <div style="height:100px;padding:20px;">
+        <h1>基本信息</h1>
+    </div>
+    <div style="height:100px;padding:20px;">
+        <h1>他人评价</h1>
+    </div>
+</div>
+
+<div class="home-view comment-overview" ng-show="currentView=='comment'">
+    <div>评价：<img src="images/stars.png"></div>
+    <br>
+    <input class="form-control" placeholder="请留下您的评论">
+    <br>
+    <div>
+        <div style="width:80px;height:50px;border:1px solid lightgreen;cursor:pointer;">
+        <span class="glyphicon glyphicon-plus" style="font-size: 30px;color:lightgreen;position: relative;cursor:pointer;;">
+            <input class="file-upload" type="file" style="opacity: 0;position: absolute;left:0;right:0;top:0;bottom: 0;cursor:pointer;">
+        </span>
+        </div>
+
+    </div>
+    <br>
+    <div class="alert alert-warning" style="font-size: 10px;">
+        支持上传图片、视频、obj/json格式的文件
+    </div>
+    <div>
+        <span class="rect">提交</span>
+    </div>
+</div>
+<script>
+    $(function () {
+        var map = new BMap.Map("my-map");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);
+
+    });
+</script>
