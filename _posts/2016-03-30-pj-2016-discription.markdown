@@ -8,7 +8,7 @@ categories: course
 # Overview
 ---
 
-这次 PJ 的说明文档将会以 docx 的文件格式以邮件附件的形式发送给大家.
+这次 PJ 的说明文档将会以 docx 的文件格式以邮件附件的形式发送给大家. [下载地址](/data/pj2016.pdf)
 
 本次 PJ 是做一个围绕景观评价功能的 web app, 并且非常欢迎扩展到 native platform. 说明文档包括但不限于具体评分细则, app 交互逻辑, 页面跳转逻辑, 部分页面 UI 参考.
 
